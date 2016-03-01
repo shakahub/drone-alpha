@@ -6,9 +6,9 @@
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/TweenMax.min.js"></script>
 <script
-	src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
+	src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.js"></script>
 <script
-	src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js"></script>
+	src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.js"></script>
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.js"></script>
 
@@ -19,7 +19,7 @@ html, body {
 	padding: 0;
 }
 
-#container {
+/*#container {
 	margin: 59vh 0;
 	padding: 50px;
 	outline: 1px dashed orange;
@@ -29,13 +29,38 @@ html, body {
 	padding: 10px;
 	border: 1px solid black;
 	font-family: Helvetica;
+}*/
+.container {
+	margin: 100px 0 100px;
+	padding: 50px;
+	outline: 1px dashed orange;
+}
+
+.block {
+	padding: 10px;
+	border: 1px solid black;
+	font-family: Helvetica;
 }
 </style>
 </head>
 <body>
-	<div id="container">
-		<div id="block">Hi there !</div>
+	<div id="container1" class="container">
+		<div id="block1" class="block">Hi there !</div>
 	</div>
+
+	<div id="container2" class="container">
+		<div id="block2" class="block">Hi there !</div>
+	</div>
+
+	<div id="container3" class="container">
+		<div id="block3" class="block">Hi there !</div>
+	</div>
+
+	<div id="container4" class="container">
+		<div id="block4" class="block">Hi there !</div>
+	</div>
+
+	<div style="height: 100vh">&nbsp;</div>
 	<script>
 		var controller;
 
@@ -43,16 +68,51 @@ html, body {
 			controller = new ScrollMagic.Controller();
 
 			// Change background to red
-	        var changeToRed = TweenMax.to('#block', 0.5, {
-	            backgroundColor: 'red',
-	            color: 'white'
-	        });
+			var changeToRed = TweenMax.to('#block1', 0.5, {
+				backgroundColor : 'red',
+				color : 'white'
+			});
 			// Apply this change when the trigger is in #container
 			var whenInContainer = new ScrollMagic.Scene({
-				triggerElement : '#container'
+				triggerElement : '#container1',
+				offset : 400
 			}).setTween(changeToRed).addIndicators().addTo(controller);
+
+			// Second animation
+			var changeToRed2 = TweenMax.to('#block2', 0.5, {
+				backgroundColor : 'red',
+				color : 'white'
+			});
+
+			var whenInContainer2 = new ScrollMagic.Scene({
+				triggerElement : '#container2',
+				offset : 200,
+				duration : 100
+			}).setTween(changeToRed2).addTo(controller).addIndicators();
+			
+			// Third animation
+            var changeToRed3 = TweenMax.to('#block3', 0.5, {
+                backgroundColor : 'red',
+                color : 'white'
+            });
+			var whenInContainer3 = new ScrollMagic.Scene({
+				triggerElement : '#container3',
+				duration : $('#container3').outerHeight(),
+				reverse : false
+			}).setTween(changeToRed3).addTo(controller).addIndicators();
+			
+			// Fourth animation
+			var changeToRed4 = TweenMax.to('#block4', 0.5, {
+			    backgroundColor: 'red',
+			    color: 'white'
+			});
+
+			var whenInContainer4 = new ScrollMagic.Scene({
+			    triggerElement: '#container4',
+			    duration: $('#container4').outerHeight(),
+			    loglevel: 3
+			}).setTween(changeToRed4).addTo(controller).addIndicators();
 		});
-		
 	</script>
 </body>
 </html>

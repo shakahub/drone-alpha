@@ -1277,7 +1277,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 .hljs-chunk {
 	color: #aaa
 }
-#popup {
+#logo {
 	position: absolute;
 	z-index: 1;
     font-size: 30px;
@@ -1292,9 +1292,16 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
     left: 50px;
     top: 0px;
 }
+#socialicons {
+	position: absolute;
+    z-index: 201;
+    padding-top: 600px;
+    left: 100px;
+    top: 0px;
+}
+
 #parallax1div {
 	background-image: url('../images/parallax1.jpg');
-/* 	background: url('../images/parallax1.jpg') no-repeat; */
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
