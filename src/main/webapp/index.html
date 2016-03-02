@@ -11,108 +11,101 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.js"></script>
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.js"></script>
-
-<style>
-html, body {
-	height: 100%;
-	margin: 0;
-	padding: 0;
-}
-
-/*#container {
-	margin: 59vh 0;
-	padding: 50px;
-	outline: 1px dashed orange;
-}
-
-#block {
-	padding: 10px;
-	border: 1px solid black;
-	font-family: Helvetica;
-}*/
-.container {
-	margin: 100px 0 100px;
-	padding: 50px;
-	outline: 1px dashed orange;
-}
-
-.block {
-	padding: 10px;
-	border: 1px solid black;
-	font-family: Helvetica;
-}
-</style>
+<link rel="stylesheet" href="../css/examples.css" type="text/css">
+<link rel="stylesheet" type="text/css"
+	href="../javascript/semantic/dist/semantic.min.css">
+<script src="../javascript/semantic/dist/semantic.min.js"></script>
 </head>
 <body>
-	<div id="container1" class="container">
-		<div id="block1" class="block">Hi there !</div>
+	<div id="parallax1" class="parallaxParent">
+		<div id="parallax1div"></div>
+		<div id="logo">
+			<img src="../images/logo.png" alt="" />
+		</div>
+		<div id="socialicons" class="ui icon buttons">
+			<div class="ui button">
+			  <i class="facebook icon"></i>
+			</div>
+			<div class="ui button">
+			  <i class="twitter icon"></i>
+			</div>
+			<div class="ui button">
+              <i class="pinterest icon"></i>
+            </div>
+            <div class="ui button">
+              <i class="youtube icon"></i>
+            </div>
+            <div class="ui button">
+              <i class="wechat icon"></i>
+            </div>
+		</div>
 	</div>
-
-	<div id="container2" class="container">
-		<div id="block2" class="block">Hi there !</div>
+	<div id="pinned-nav-trigger">
+		<div id="pinned-nav-div" class="ui three item menu">
+		  <a class="active item">Editorials</a>
+		  <a class="item">Reviews</a>
+		  <a class="item">Upcoming Events</a>
+		</div>
 	</div>
-
-	<div id="container3" class="container">
-		<div id="block3" class="block">Hi there !</div>
+	<div class="spacer s1">
+		<div id="arielphotocontainer" class="ui raised very padded text container segment">
+			<h2 class="ui header">Dogs Roles with Humans</h2>
+			<p></p>
+			<p></p>
+		</div>
 	</div>
-
-	<div id="container4" class="container">
-		<div id="block4" class="block">Hi there !</div>
+	<div id="parallax2" class="parallaxParent">
+		<div id="parallax2div"></div>
 	</div>
-
-	<div style="height: 100vh">&nbsp;</div>
+	<div class="spacer s1"></div>
+	<!-- 	<div class="spacer s0"></div> -->
+	<div id="parallax3" class="parallaxParent">
+		<div id="parallax3div"></div>
+	</div>
+	<div class="spacer s2"></div>
 	<script>
-		var controller;
-
-		$(function() {
-			controller = new ScrollMagic.Controller();
-
-			// Change background to red
-			var changeToRed = TweenMax.to('#block1', 0.5, {
-				backgroundColor : 'red',
-				color : 'white'
-			});
-			// Apply this change when the trigger is in #container
-			var whenInContainer = new ScrollMagic.Scene({
-				triggerElement : '#container1',
-				offset : 400
-			}).setTween(changeToRed).addIndicators().addTo(controller);
-
-			// Second animation
-			var changeToRed2 = TweenMax.to('#block2', 0.5, {
-				backgroundColor : 'red',
-				color : 'white'
-			});
-
-			var whenInContainer2 = new ScrollMagic.Scene({
-				triggerElement : '#container2',
-				offset : 200,
-				duration : 100
-			}).setTween(changeToRed2).addTo(controller).addIndicators();
-			
-			// Third animation
-            var changeToRed3 = TweenMax.to('#block3', 0.5, {
-                backgroundColor : 'red',
-                color : 'white'
-            });
-			var whenInContainer3 = new ScrollMagic.Scene({
-				triggerElement : '#container3',
-				duration : $('#container3').outerHeight(),
-				reverse : false
-			}).setTween(changeToRed3).addTo(controller).addIndicators();
-			
-			// Fourth animation
-			var changeToRed4 = TweenMax.to('#block4', 0.5, {
-			    backgroundColor: 'red',
-			    color: 'white'
-			});
-
-			var whenInContainer4 = new ScrollMagic.Scene({
-			    triggerElement: '#container4',
-			    duration: $('#container4').outerHeight(),
-			    loglevel: 3
-			}).setTween(changeToRed4).addTo(controller).addIndicators();
+		// init controller
+		var controller = new ScrollMagic.Controller({
+			globalSceneOptions : {
+				triggerHook : "onEnter",
+				duration : "200%"
+			}
 		});
+
+		// build scenes
+		new ScrollMagic.Scene({
+			triggerElement : "#parallax1"
+		}).setTween("#parallax1div", 0.1 , {
+			y : "80%",
+			ease : Linear.easeNone,
+			opacity:0.75
+		}).addTo(controller);
+
+		new ScrollMagic.Scene({
+			triggerElement : "#parallax2"
+		}).setTween("#parallax2div", {
+			y : "80%",
+			ease : Linear.easeNone,
+			opacity:0.75
+		}).addTo(controller);
+
+		new ScrollMagic.Scene({
+			triggerElement : "#parallax3"
+		}).setTween("#parallax3div", {
+			y : "80%",
+			ease : Linear.easeNone,
+			opacity:0.75
+		}).addTo(controller);
+
+		
+		//Menubar
+        var controller2 = new ScrollMagic.Controller();
+		new ScrollMagic.Scene({
+			triggerElement : "#pinned-nav-trigger", // point of execution
+			triggerHook: 0,
+			reverse : true
+		}).setPin("#pinned-nav-div").addTo(controller2);//.addIndicators()
 	</script>
+
 </body>
 </html>
