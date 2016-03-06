@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=500" />
+<meta name="keywords"
+	content="ScrollMagic, example, scrolling, attaching, scrollbar, tween, tweenmax" />
+<meta name="author" content="Jan Paepke (www.janpaepke.de)" />
+<title>Bezier Path Animation - Examples - ScrollMagic</title>
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/TweenMax.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.js"></script>
+<link rel="stylesheet" href="../css/examples.css" type="text/css">
+<link rel="stylesheet" type="text/css"
+	href="../javascript/semantic/dist/semantic.min.css">
+<script src="../javascript/semantic/dist/semantic.min.js"></script>
+</head>
+<body>
+
+	<section class="demo" id="bezier">
+		<div class="spacer s2"></div>
+		<div class="spacer s0" id="trigger"></div>
+		<div id="target">
+			<img id="plane" src="../images/pp_bezier1.png" />
+		</div>
+		<div class="spacer s2"></div>
+		<script>
+                        $(function () { // wait for document ready
+                        	var p = $( "#plane" );
+                        	var position = p.position();
+                        	console.log( "left: " + position.left + ", top: " + position.top );
+                        	var flightpath = {
+                                    entry : {
+                                        curviness: 1.25,
+                                        autoRotate: true,
+                                        values: [
+                                                {x: 100,    y: -20},
+                                                {x: 300,    y: 10}
+                                            ]
+                                    },
+                                    looping : {
+                                        curviness: 1.25,
+                                        autoRotate: true,
+                                        values: [
+                                                {x: 510,    y: 60},
+                                                {x: 620,    y: -60},
+                                                {x: 500,    y: -100},
+                                                {x: 380,    y: 20},
+                                                {x: 500,    y: 60},
+                                                {x: 580,    y: 20},
+                                                {x: 620,    y: 15}
+                                            ]
+                                    },
+                                    leave : {
+                                        curviness: 1.25,
+                                        autoRotate: true,
+                                        values: [
+                                                {x: 660,    y: 20},
+                                                {x: 800,    y: 130},
+                                                {x: $(window).width() + 300,    y: -100},
+                                            ]
+                                    }
+                                };
+                            // init controller
+                            var controller = new ScrollMagic.Controller();
+                            // create tween
+                            var tween = new TimelineMax()
+                                .add(TweenMax.to($("#plane"), 1.2, {css:{bezier:flightpath.entry}, ease:Power1.easeInOut}))
+                                .add(TweenMax.to($("#plane"), 2, {css:{bezier:flightpath.looping}, ease:Power1.easeInOut}))
+                                .add(TweenMax.to($("#plane"), 1, {css:{bezier:flightpath.leave}, ease:Power1.easeInOut}));
+                            // build scene
+                            var scene = new ScrollMagic.Scene({triggerElement: "#trigger", duration: 500, offset: 100, loglevel: 3})
+                                            .setPin("#target")
+                                            .setTween(tween)
+                                            .addIndicators() // add indicators (requires plugin)
+                                            .addTo(controller);
+                        })
+                    </script>
+	</section>
+
+</body>
+</html>
