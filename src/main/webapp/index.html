@@ -140,14 +140,14 @@
 		// init controller
 		var controller = new ScrollMagic.Controller({
 			globalSceneOptions : {
-				triggerHook : "onEnter",
-				duration : "200%"
+				triggerHook : "onEnter"
 			}
 		});
 
 		// build scenes
 		new ScrollMagic.Scene({
-			triggerElement : "#parallax1"
+			triggerElement : "#parallax1",
+			duration : "200%"
 		}).setTween("#parallax1div", 0.1 , {
 			y : "80%",
 			ease : Linear.easeNone,
@@ -155,7 +155,8 @@
 		}).addTo(controller);
 
 		new ScrollMagic.Scene({
-			triggerElement : "#parallax2"
+			triggerElement : "#parallax2",
+			duration : "200%"
 		}).setTween("#parallax2div", {
 			y : "80%",
 			ease : Linear.easeNone,
@@ -163,7 +164,8 @@
 		}).addTo(controller);
 
 		new ScrollMagic.Scene({
-			triggerElement : "#parallax3"
+			triggerElement : "#parallax3",
+			duration : "200%"
 		}).setTween("#parallax3div", {
 			y : "80%",
 			ease : Linear.easeNone,
@@ -255,8 +257,8 @@
 
 		// build scene
 		new ScrollMagic.Scene({
-			triggerElement : "#parallax1",
-			offset : 370
+			triggerElement : "#pp_bezier1div",
+			offset : -180
 		}).setPin("#pp_bezier1div").setTween(pptween).addIndicators() // add indicators (requires plugin)
 		.addTo(controller2);
 	</script>
