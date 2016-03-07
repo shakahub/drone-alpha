@@ -87,30 +87,15 @@
 				</p>
 			</div>
 			<div class="column">
-				<div
-					class="ui three column stackable padded middle aligned centered color grid">
-					<div class="red column">Red</div>
-					<div class="orange column">Orange</div>
-					<div class="yellow column">Yellow</div>
-					<div class="olive column">Olive</div>
-					<div class="green column">Green</div>
-					<div class="teal column">Teal</div>
-					<div class="blue column">Blue</div>
-					<div class="violet column">Violet</div>
-					<div class="purple column">Purple</div>
-					<div class="pink column">Pink</div>
-					<div class="brown column">Brown</div>
-					<div class="grey column">Grey</div>
-					<div class="black column">Black</div>
-				</div>
 			</div>
 		</div>
 	</div>
 	<div id="parallax2" class="parallaxParent">
 		<div id="parallax2div"></div>
 	</div>
-	<div class="spacer s1"></div>
-	<!-- 	<div class="spacer s0"></div> -->
+	<div class="spacer s1">
+	   <div id="map"></div>
+	</div>
 	<div id="parallax3" class="parallaxParent">
 		<div id="parallax3div"></div>
 	</div>
@@ -126,7 +111,7 @@
 				</div>
 				<i class="large github mark icon"></i>
 				<div class="ui small horizontal list">
-					<div class="disabled item" href="#">&copy; 2016 SHAKA LLC.</div>
+					<div class="disabled item">&copy; 2016 SHAKA LLC.</div>
 					<a class="item" href="#">Terms</a> <a class="item" href="#">Privacy</a>
 					<a class="item" href="#">Security</a> <a class="item" href="#">Contact</a>
 					<a class="item" href="#">Help</a>
@@ -177,6 +162,16 @@
 			reverse : true
 		}).setPin("#pinned-nav-div").addTo(controller2);//.addIndicators()
 	</script>
-
+	<script>
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -34.397, lng: 150.644},
+          scrollwheel: false,
+          zoom: 8
+        });
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBEX4gELwwL_qMoGf6J4mNwRwAfVj2L-18&callback=initMap" async defer></script>
 </body>
 </html>

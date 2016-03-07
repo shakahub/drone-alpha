@@ -1312,7 +1312,8 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 	top: -85%;
 }
 #pinned-nav-trigger {
-    z-index: 1002;
+	position:relative
+    z-index: 9999;
 }
 #parallax2div {
 	background-image: url('../images/parallax2.jpg');
@@ -1346,6 +1347,13 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 }
 #footerdiv {
 	z-index: 200;
+}
+#map {
+	z-index: -1;
+	padding-top: 100px;
+	position: relative;
+    top: 10px;
+    height: 80vh;
 }
 .parallaxParent {
 	height: 95vh;
