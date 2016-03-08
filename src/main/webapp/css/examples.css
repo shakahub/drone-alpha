@@ -1288,16 +1288,14 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
     text-transform: uppercase;
     z-index: 200;
     text-align: center;
-    padding-top: 200px;
-    left: 50px;
-    top: 0px;
+    top: 25%;
+    left: 10%;
 }
 #socialicons {
 	position: absolute;
     z-index: 200;
-    padding-top: 600px;
-    left: 100px;
-    top: 0px;
+    top: 80%;
+    left: 10%;
 }
 
 #parallax1div {
@@ -1311,9 +1309,9 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 	position: relative;
 	top: -85%;
 }
-#pinned-nav-trigger {
+#pinned-nav-div {
 	position:relative
-    z-index: 9999;
+    z-index: 999;
 }
 #parallax2div {
 	background-image: url('../images/parallax2.jpg');
@@ -1338,18 +1336,22 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 	position: relative;
 	top: -85%;
 }
-
-#arielphotocontainer {
+#howshakaworksheaderdiv {
+    z-index: -1;
+    padding-top: 50px;
+    position: relative;
+}
+#howshakaworksdiv {
 	z-index: -1;
-	padding-top: 200px;
 	position: relative;
 	top: 10px;
+	padding-left: 20px;
 }
 #footerdiv {
 	z-index: 200;
 }
 #map {
-	z-index: -1;
+	z-index: 0;
 	padding-top: 100px;
 	position: relative;
     top: 10px;
@@ -1358,8 +1360,14 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 .parallaxParent {
 	height: 95vh;
 	overflow: hidden;
+	position: relative
 }
 span.lines {
     border-top: 1px solid #aeaeae;
     border-bottom: 1px solid #aeaeae;
+}
+
+#howshakaworksdiv >div > p {
+    font-size: 125%;
+    text-align: left;
 }
