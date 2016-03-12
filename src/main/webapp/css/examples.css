@@ -1286,16 +1286,15 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
     color: #00000;
     line-height: 38px;
     text-transform: uppercase;
-    z-index: 200;
     text-align: center;
     top: 25%;
     left: 10%;
 }
 #socialicons {
 	position: absolute;
-    z-index: 200;
     top: 80%;
     left: 10%;
+    z-index: 2;
 }
 
 #parallax1div {
@@ -1304,14 +1303,18 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
-	z-index: -1;
+	z-index: 1;
 	height: 150%;
 	position: relative;
 	top: -85%;
 }
 #pinned-nav-div {
-	position:relative
-    z-index: 999;
+	position:relative;
+	z-index: 99;
+}
+#pinned-nav-trigger {
+	position:relative;
+	z-index: 99;
 }
 #parallax2div {
 	background-image: url('../images/parallax2.jpg');
@@ -1319,7 +1322,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
-	z-index: -1;
+	z-index: 1;
 	height: 150%;
 	position: relative;
 	top: -85%;
@@ -1331,21 +1334,21 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
-	z-index: -1;
+	z-index: 1;
 	height: 150%;
 	position: relative;
 	top: -85%;
 }
 #howshakaworksheaderdiv {
-    z-index: -1;
     padding-top: 50px;
     position: relative;
+    z-index: 1;
 }
 #howshakaworksdiv {
-	z-index: -1;
 	position: relative;
 	top: 10px;
 	padding-left: 20px;
+	z-index: 1;
 }
 #footerdiv {
 	z-index: 200;
@@ -1360,7 +1363,8 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 .parallaxParent {
 	height: 95vh;
 	overflow: hidden;
-	position: relative
+	position: relative;
+	z-index: 1;
 }
 span.lines {
     border-top: 1px solid #aeaeae;

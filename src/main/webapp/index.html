@@ -44,7 +44,7 @@
 		</div>
 	</div>
 	<div id="pinned-nav-trigger">
-		<div id="pinned-nav-div" class="ui five item menu">
+		<div id="pinned-nav-div" class="ui five item inverted stackable menu visible">
 			<a class="active item">Home</a> <a class="item">Aerial Photography Service</a> <a
 				class="item">Rent A Drone</a>
 				<a class="item">Register Your Drone For Rent</a>
@@ -160,7 +160,8 @@
 			triggerElement : "#pinned-nav-trigger", // point of execution
 			triggerHook: 0,
 			reverse : true
-		}).setPin("#pinned-nav-div").addTo(controller2);//.addIndicators()
+			//duration: 1600
+		}).setPin("#pinned-nav-div", {pushFollowers: false}).addTo(controller2);//.addIndicators()
 	</script>
 	<script>
       var map;
