@@ -1296,7 +1296,12 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
     left: 10%;
     z-index: 2;
 }
-
+#signinmenu {
+	position: absolute;
+    top: 5%;
+    left: 80%;
+    z-index: 2;
+}
 #parallax1div {
 	background-image: url('../images/parallax1.jpg');
 	-webkit-background-size: cover;

@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+<title>Shaka - A Drone Company</title>
+<!-- <script -->
+<!-- 	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script> -->
 <script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    src="http://code.jquery.com/jquery-2.2.0.min.js"></script>
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/TweenMax.min.js"></script>
 <script
@@ -42,13 +45,21 @@
 				<i class="wechat icon"></i>
 			</div>
 		</div>
+		<div id="signinmenu" class="ui blue inverted stackable compact menu">
+		  <div class="item">
+		    <div id="signupbtn" class="ui primary button">Sign up</div>
+		  </div>
+		  <div class="item">
+		    <div id="loginbtn" class="ui button">Log-in</div>
+		  </div>
+		</div>
 	</div>
 	<div id="pinned-nav-trigger">
-		<div id="pinned-nav-div" class="ui five item inverted stackable menu visible">
-			<a class="active item">Home</a> <a class="item">Aerial Photography Service</a> <a
-				class="item">Rent A Drone</a>
-				<a class="item">Register Your Drone For Rent</a>
-				<a class="item">Drone Community</a>
+		<div id="pinned-nav-div" class="ui five item inverted stackable labeled icon menu visible">
+			<a class="active item"><i class="home icon"></i>Home</a> <a class="item"><i class="camera retro icon"></i>Aerial Photography Service</a> <a
+				class="item"><i class="find icon"></i>Rent A Drone</a>
+				<a class="item"><i class="dollar icon"></i>Register Your Drone For Rent</a>
+				<a class="item"><i class="world icon"></i>Drone Community</a>
 		</div>
 	</div>
 	<div class="spacer s1">
@@ -119,7 +130,35 @@
 			</div>
 		</div>
 	</div>
+	<div class="ui modal">
+	  <i class="close icon"></i>
+	  <div class="header">
+	    Profile Picture
+	  </div>
+	  <div class="image content">
+	    <div class="ui medium image">
+	      <img src="../images/avatar/large/rachel.png">
+	    </div>
+	    <div class="description">
+	      <div class="ui header">We've auto-chosen a profile image for you.</div>
+	      <p>We've grabbed the following image from the <a href="https://www.gravatar.com" target="_blank">gravatar</a> image associated with your registered e-mail address.</p>
+	      <p>Is it okay to use this photo?</p>
+	    </div>
+	  </div>
+	  <div class="actions">
+	    <div class="ui black deny button">
+	      Nope
+	    </div>
+	    <div class="ui positive right labeled icon button">
+	      Yep, that's me
+	      <i class="checkmark icon"></i>
+	    </div>
+	  </div>
+	</div>
 	<script>
+	    $("#loginbtn").on("click",function(){
+	    	$('.ui.modal').modal('show');
+	    });
 		// init controller
 		var controller = new ScrollMagic.Controller({
 			globalSceneOptions : {
